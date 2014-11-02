@@ -51,4 +51,18 @@ module BatteryBoxCover(width = 67, length = 55, cThickness = 2, tabThickness = 1
 		}
 	}
 }
-//BatteryBoxCover();
+// BatteryBoxCover();
+
+module BatteryBoxCoverCavity()
+{
+	mountWidth=20;
+	cThickness=2;
+	union()
+	{
+		BatteryBoxCover();
+		translate([0,-4,0])
+			cylinder(cThickness, d=mountWidth/2);
+	}
+}
+
+//BatteryBoxCoverCavity();
