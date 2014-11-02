@@ -6,7 +6,7 @@
 
 include <BatteryBoxCover.scad>;
 
-module BatteryBoxCavity(batteryHeight=50,batteryDiameter=15,offset=1)
+module BatteryBoxCavity(batteryHeight=51,batteryDiameter=15,offset=1)
 {
 	batteryCavityWidth = (batteryDiameter+offset)*4-offset;
 
