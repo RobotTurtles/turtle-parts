@@ -1,0 +1,14 @@
+Arduino Uno - program this to talk to the motors/servos
+http://www.adafruit.com/products/50
+
+continuous rotation servos x 2 - these can be used for the turtle legs.
+http://www.adafruit.com/products/154
+
+half breadboard - for using wires to connect things together
+http://www.adafruit.com/products/64
+
+wires male/male:
+http://www.adafruit.com/products/1955
+
+Extra Long Header Pin (to attach servos to bread board
+http://www.adafruit.com/products/400
