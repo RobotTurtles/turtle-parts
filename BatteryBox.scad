@@ -5,14 +5,15 @@
  */
 
 include <BatteryBoxCover.scad>;
+include <BatteryContacts.scad>;
 
-module BatteryBoxCavity(batteryHeight=51,batteryDiameter=15,offset=1)
+module BatteryBoxCavity(batteryHeight=51,batteryDiameter=14.5,offset=.1)
 {
 	batteryCavityWidth = (batteryDiameter+offset)*4-offset;
 
 	translate([-batteryCavityWidth/2,0,0])
 	{
-		cube(size=[batteryCavityWidth, batteryHeight, batteryDiameter/2], 
+		cube(size=[batteryCavityWidth, batteryHeight, batteryDiameter/2+2], 
 				center=false);	
 
 		// 1st Battery
@@ -35,8 +36,31 @@ module BatteryBoxCavity(batteryHeight=51,batteryDiameter=15,offset=1)
 			rotate([-90,0,0])
 				cylinder(d=batteryDiameter, h=batteryHeight, center=false);
 	}
+	union()
+	{
+		// Battery Contacts (Dual)
+		translate([0,0,batteryDiameter])
+			rotate([90,180,180])
+				BatteryDualContact();
+		translate([batteryDiameter,batteryHeight,batteryDiameter])
+			rotate([90,180,0])
+				BatteryDualContact();
+		translate([-batteryDiameter,batteryHeight,batteryDiameter])
+			rotate([90,180,0])
+				BatteryDualContact();
+
+		// Battery Contacts (Single)
+		translate([batteryDiameter*1.5,0,batteryDiameter])
+			rotate([90,180,180])
+				BatterySingleContact();
+
+		translate([-batteryDiameter*1.5,0,batteryDiameter])
+			rotate([90,180,180])
+				BatterySingleContact();	
+	}
+	
 }
-//BatteryCavity()
+//BatteryBoxCavity();
 
 module BatteryBox()
 {
