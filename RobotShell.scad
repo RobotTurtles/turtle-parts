@@ -19,7 +19,7 @@ module RobotShell(basewidth=92.5)
 
 	topShellScaleFactor = 1;
 
-	difference()
+	%difference()
 	{
 	union()
 	{
@@ -66,25 +66,59 @@ module RobotShell(basewidth=92.5)
 		translate([-100,-150,-200])
 			cube([200,200,200]);
 	
-		translate([0,-40,0])
+		translate([0,32,baseThickness])
 			#InnerCavity();
 	}
-
+		translate([0,32,baseThickness])
+			#InnerCavity();
 }
-RobotShell();
+//RobotShell();
 
-module InnerCavity()
+module Tent(h=10,w=20,l=20)
+{
+	polyhedron(
+		points=[[0, 0, 0], [w, 0, 0], [w/2,0,h],
+				  [0, l ,0], [w, l, 0], [w/2,l,h]], 
+	   faces=[[0,1,2], [0,1,3], [1,3,4],[3,4,5],
+				 [0,2,3],[2,3,5],[1,2,5],[1,4,5]
+				]);
+}
+//Tent();
+
+module InnerCavity(shellWidth=100, shellLength=100, headRadius=44)
 {
 	radiusX = 46;
 	yPosition = 50;
-	height = 30;
+	height = 40;
+
+	pointForSides = (headRadius<height)?0:headRadius-height;
+
+	headInsert = 15;
+	tailInsert = 40;
+
+	// Base Points
+	p0 = [0,0,0];
+	p1 = [headRadius,-headInsert,0];
+	p2 = [headRadius,-shellLength-headInsert,0];
+	p3 = [0,-shellLength-headInsert-tailInsert,0];
+	p4 = [-headRadius, -shellLength-headInsert,0];
+	p5 = [-headRadius,-headInsert,0];
+
+	// Top Points
+	p6 = [0, -height, height];
+	p7 = [0, -shellLength-headInsert-tailInsert+height, height];
+
+	topFront = 3;
+	topBack = topFront;
 
 	polyhedron(
-  points=[ [ radiusX,yPosition,0], [ radiusX,-yPosition,0],
-			  [-radiusX,-yPosition,0],[-radiusX,yPosition,0], // the four points at base
-           [0,0,height]  ],                                 // the apex point 
-  faces=[ [0,1,4],[1,2,4],[2,3,4],[3,0,4],              // each triangle side
-              [1,0,3],[2,1,3] ]                         // two triangles for square base
- );
+  points=[ p0, p1, p2,
+			  p6],
+  faces=[ [0,1,topFront], [1,topFront,topBack], [1,2,topBack], // front
+			 [2,3,topBack], [3,4,topBack],
+			 [4,5,topBack],[5,topFront,topBack],[topFront,0,5],
+			 [0,1,2],[0,2,3],[0,3,4],[4,5,0]
+		  ]);
 
 }
+//InnerCavity();
