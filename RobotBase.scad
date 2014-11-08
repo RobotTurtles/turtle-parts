@@ -9,6 +9,7 @@
 
 include <StandardServo.scad>;
 include <BatteryBox.scad>;
+include <CoreBasePlate.scad>;
 
 module RobotBase(basewidth=92.5)
 {
@@ -34,28 +35,13 @@ module RobotBase(basewidth=92.5)
 	tailContributionToLength = (basewidth * tailScaleFactor)/2;
 
 	centralBoxLength = baselength - headContributionToLength - tailContributionToLength;
-
+	echo(centralBoxLength);
 	batteryBoxY = 36;
 	// Create Main Body
 	difference(){
 		union()
 		{
-			translate([-basewidth/2, -centralBoxLength+8,0])
-			{
-	
-				// Create Central Cube
-				cube([basewidth, centralBoxLength, baseThickness]);
-
-				// Create Head Cylinder
-				translate([basewidth/2,centralBoxLength,0])
-					scale([1,headScaleFactor,1])
-						cylinder(baseThickness, d=basewidth);
-
-				// Create Tail Cylinder
-				translate([basewidth/2,0,0])
-					scale([1,tailScaleFactor,1])
-						cylinder(baseThickness, d=basewidth);
-			}
+			CoreBasePlate(basewidth, centralBoxLength, baseThickness, headScaleFactor, tailScaleFactor);
 
 			// Add Battery Box
 			translate([0,-batteryBoxY,0])
