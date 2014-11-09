@@ -21,6 +21,9 @@ module RobotBase(basewidth=92.5)
 	xPosition = 25;
 	tieWidth = 5;
 	tieLength = 3;
+	batteryHeight = 53;
+
+	batteryBoxTranslationZ = 4.9;
 
 	// Compute Base Length as a function of width
 	baselength = basewidth * GOLDEN_RATIO;
@@ -36,7 +39,7 @@ module RobotBase(basewidth=92.5)
 
 	centralBoxLength = baselength - headContributionToLength - tailContributionToLength;
 	echo(centralBoxLength);
-	batteryBoxY = 36;
+	batteryBoxY = 34;
 	// Create Main Body
 	difference(){
 		union()
@@ -44,21 +47,22 @@ module RobotBase(basewidth=92.5)
 			CoreBasePlate(basewidth, centralBoxLength, baseThickness, headScaleFactor, tailScaleFactor);
 
 			// Add Battery Box
-			translate([0,-batteryBoxY,0])
+			translate([0,-batteryBoxY,batteryBoxTranslationZ])
 				mirror([0,1,0])
-						BatteryBox();
+						BatteryBox(batteryHeight=batteryHeight);
 
 			// Add Caster
 			translate([0, -centralBoxLength-35, 15])
 				union()
 				{
-					sphere(d=20);
-					translate([0,0,-10])
-						cylinder(h=10, d=20);
+					sphere(d=25);
+					translate([0,0,-15])
+						cylinder(h=15, d=25);
 				}
 		}
 
-		translate([0,-centralBoxLength+batteryBoxY-4,15.006])
+		// Battery Cover
+		translate([0,-centralBoxLength+batteryBoxY+1.5,batteryBoxTranslationZ+13.1])
 			mirror([0,1,0])
 					BatteryBoxCoverCavity();
 
@@ -72,9 +76,10 @@ module RobotBase(basewidth=92.5)
 				StandardServo();
 
 		// Battery Cavity
-		translate([0,-centralBoxLength-batteryBoxY+15,16])
+		translate([0,-centralBoxLength+batteryBoxY-1,18])
 			mirror([0,0,1])
-				BatteryBoxCavity();
+				rotate([0,0,180])
+					#BatteryBoxCavity();
 
 
 		// Zip Tie Holes

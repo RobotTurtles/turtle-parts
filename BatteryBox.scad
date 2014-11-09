@@ -7,7 +7,7 @@
 include <BatteryBoxCover.scad>;
 include <BatteryContacts.scad>;
 
-module BatteryBoxCavity(batteryHeight=51,batteryDiameter=14.5,offset=.1)
+module BatteryBoxCavity(batteryHeight=54,batteryDiameter=14.5,offset=.1)
 {
 	batteryCavityWidth = (batteryDiameter+offset)*4-offset;
 
@@ -62,10 +62,9 @@ module BatteryBoxCavity(batteryHeight=51,batteryDiameter=14.5,offset=.1)
 }
 //BatteryBoxCavity();
 
-module BatteryBox()
+module BatteryBox(batteryHeight=53)
 {
 	batteryDiameter=15;
-	batteryHeight = 50;
 	boxHeight = batteryDiameter+2;
 	boxWidth = 15*4+10;
 	boxLength = batteryHeight+10;

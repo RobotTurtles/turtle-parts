@@ -3,7 +3,7 @@
  * Description:
  *     Battery Box Cover
  */
-module BatteryBoxCover(width = 67, length = 55, cThickness = 2, tabThickness = 1)
+module BatteryBoxCover(width = 67, length = 60, cThickness = 4, tabThickness = 2)
 {
 	module batteryTab()
 	{
@@ -51,17 +51,22 @@ module BatteryBoxCover(width = 67, length = 55, cThickness = 2, tabThickness = 1
 		}
 	}
 }
-// BatteryBoxCover();
+//BatteryBoxCover();
 
 module BatteryBoxCoverCavity()
 {
 	mountWidth=20;
-	cThickness=2;
+	cThickness=4;
 	union()
 	{
 		BatteryBoxCover();
 		translate([0,-4,0])
-			cylinder(cThickness, d=mountWidth/2);
+			union()
+			{
+				cylinder(cThickness, d=mountWidth/2);
+				mirror([0,0,1])
+					cylinder(cThickness*2, d=3);
+			}
 	}
 }
 
