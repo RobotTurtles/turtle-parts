@@ -76,14 +76,20 @@ module RobotShell(basewidth=92.5)
 
 module Tent(h=10,w=20,l=20)
 {
+	p0 = [10,10,0];
+	p1 = [10,-10,0];
+	p2 = [-10,-10,0];
+	p3 = [-10,10,0];
+	p4 = [0,-10,10];
+	p5 = [0,10,10];
 	polyhedron(
-		points=[[0, 0, 0], [w, 0, 0], [w/2,0,h],
-				  [0, l ,0], [w, l, 0], [w/2,l,h]], 
-	   faces=[[0,1,2], [0,1,3], [1,3,4],[3,4,5],
-				 [0,2,3],[2,3,5],[1,2,5],[1,4,5]
-				]);
+  points=[ p0,p1,p2,p3, // the four points at base
+             p4,p5],                                 // the apex point 
+  faces=[ [0,1,4],[1,2,4],[2,3,4],[3,0,4],           // each triangle side
+              [1,0,3],[2,1,3] ]                         // two triangles for square base
+ );
 }
-//Tent();
+Tent();
 
 module InnerCavity(shellWidth=100, shellLength=100, headRadius=44)
 {
