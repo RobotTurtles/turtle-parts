@@ -67,7 +67,7 @@ module RobotShell(basewidth=92.5)
 			InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
 	}
 }
-RobotShell();
+//RobotShell();
 
 module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100, 
 						 baseThickness=10,
