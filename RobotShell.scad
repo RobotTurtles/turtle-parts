@@ -74,18 +74,25 @@ module RobotShell(basewidth=92.5)
 }
 //RobotShell();
 
-module Tent(h=10,w=20,l=20)
+module Tent(h=10,w=20,l=20, headlength=10,tailLength=20)
 {
-	p0 = [10,10,0];
-	p1 = [10,-10,0];
-	p2 = [-10,-10,0];
-	p3 = [-10,10,0];
-	p4 = [0,-10,10];
-	p5 = [0,10,10];
+	p0 = [w,l,0];
+	p1 = [w,0,0];
+	p2 = [0,0,0];
+	p3 = [0,l,0];
+
+	t4 = [w/2,0,h];
+	t5 = [w/2,l,h];
+
+	p6 = [w/2, l+w,0];
+	p7 = [w/2, -w,0];
+
 	polyhedron(
   points=[ p0,p1,p2,p3, // the four points at base
-             p4,p5],                                 // the apex point 
-  faces=[ [0,1,4],[1,2,4],[2,3,4],[3,0,4],           // each triangle side
+             t4,t5, p6, p7],                                 // the apex point 
+  faces=[[0,1,4],[2,3,4],[3,5,4],[5,0,4],          // each triangle side
+			[0,5,6],[3,6,5],[0,6,3],
+			[1,7,4],[2,4,7],[1,2,7],
               [1,0,3],[2,1,3] ]                         // two triangles for square base
  );
 }
@@ -114,16 +121,16 @@ module InnerCavity(shellWidth=100, shellLength=100, headRadius=44)
 	p6 = [0, -height, height];
 	p7 = [0, -shellLength-headInsert-tailInsert+height, height];
 
-	topFront = 3;
-	topBack = topFront;
+	topFront = 6;
+	topBack = 7;
 
 	polyhedron(
-  points=[ p0, p1, p2,
-			  p6],
-  faces=[ [0,1,topFront], [1,topFront,topBack], [1,2,topBack], // front
+  points=[ p0, p1, p2,p3,p4,p5,
+			  p6,p7],
+  faces=[ [0,1,topFront], [1,topBack, topFront], [1,2,topBack], // front
 			 [2,3,topBack], [3,4,topBack],
-			 [4,5,topBack],[5,topFront,topBack],[topFront,0,5],
-			 [0,1,2],[0,2,3],[0,3,4],[4,5,0]
+			 [4,5,topBack],[5,topFront,topBack],[5,0, topFront],
+			 [0,1,2],[0,2,3],[0,3,4],[0,4,5]
 		  ]);
 
 }
