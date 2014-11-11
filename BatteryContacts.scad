@@ -7,7 +7,7 @@
 module BatteryDualContact()
 {
 	overallHeight = 18.49;
-	thickness = .65;
+	thickness = .69;
 	tabDiameter = 4.1;
 	mainBodyHeight = 11.99;
 	tabRectangleHeight = overallHeight - mainBodyHeight - (tabDiameter/2);
@@ -45,7 +45,7 @@ module BatteryDualContact()
 module BatterySingleContact()
 {
 	overallHeight = 18.49;
-	thickness = .65;
+	thickness = .69;
 	tabDiameter = 4.1;
 	mainBodyHeight = 11.99;
 	tabRectangleHeight = overallHeight - mainBodyHeight - (tabDiameter/2);
