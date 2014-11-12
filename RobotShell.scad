@@ -15,59 +15,61 @@ module RobotShell(basewidth=92.5)
 	headScaleFactor=0.5;
 	tailScaleFactor=1.2;
 	heightScaleFactor = .4; //1/GOLDEN_RATION
-	shellWidth = basewidth + 10;
+	shellWidth = basewidth;
 
 	topShellScaleFactor = 1;
 
 	difference()
 	{
-	union()
-	{
-		// Top-Back Roundess
-		translate([0,-44,baseThickness])
-			scale([1, 1.6,topShellScaleFactor])
-				sphere(d=shellWidth);
+		union()
+		{
+			// Top-Back Roundess
+			translate([0,-44,baseThickness])
+				scale([1, 1.6,topShellScaleFactor])
+					sphere(d=shellWidth);
 
-		// Top-Front Roundess
-		translate([0,-15,baseThickness])
-			scale([1, 1,topShellScaleFactor])
-				sphere(d=shellWidth);
+			// Top-Front Roundess
+			translate([0,-15,baseThickness])
+				scale([1, 1,topShellScaleFactor])
+					sphere(d=shellWidth);
 
-		// Connection of front to back
-		translate([0,-15, baseThickness])
-			scale([1, 1,topShellScaleFactor])
-				rotate([90,0,0])
-					cylinder(d=shellWidth, 44-15);
+			// Connection of front to back
+			translate([0,-15, baseThickness])
+				scale([1, 1,topShellScaleFactor])
+					rotate([90,0,0])
+						cylinder(d=shellWidth, 44-15);
 
-		// Head Roundess
-		translate([0,8,baseThickness])
-			scale([1, headScaleFactor,heightScaleFactor])
-				sphere(d=shellWidth);
+			// Head Roundess
+			translate([0,8,baseThickness])
+				scale([1, headScaleFactor,heightScaleFactor])
+					sphere(d=shellWidth);
 
-		// Tail Roundness
-		translate([0,-63,baseThickness])
-			scale([1, tailScaleFactor,heightScaleFactor])
-				sphere(d=shellWidth);
+			// Tail Roundness
+			translate([0,-63,baseThickness])
+				scale([1, tailScaleFactor,heightScaleFactor])
+					sphere(d=shellWidth);
 
-		// Connection of front to back
-		translate([0,8, baseThickness])
-			scale([1, 1,heightScaleFactor])
-				rotate([90,0,0])
-					cylinder(d=shellWidth, centralBoxLength);
+			// Connection of front to back
+			translate([0,8, baseThickness])
+				scale([1, 1,heightScaleFactor])
+					rotate([90,0,0])
+						cylinder(d=shellWidth, centralBoxLength);
 	
-		// Connection to base
-		CoreBasePlate(basewidth=shellWidth, centralBoxLength=centralBoxLength, 
-					  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
-					  tailScaleFactor=tailScaleFactor);
-	}
+			// Connection to base
+			CoreBasePlate(basewidth=shellWidth, centralBoxLength=centralBoxLength, 
+						  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
+						  tailScaleFactor=tailScaleFactor);
+		}
 		translate([-100,-150,-200])
 			cube([200,200,200]);
+		translate([0,25,25])
+			sphere(d=30);
 	
 		translate([0,0,0])
 			InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
 	}
 }
-//RobotShell();
+RobotShell();
 
 module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100, 
 						 baseThickness=10,
