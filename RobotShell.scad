@@ -89,9 +89,24 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 	p6 = [basewidth/2, centralBoxLength+headLength,0];
 	p7 = [basewidth/2, -tailLength,0];
 
+	piHeight = 10;
+	piLength = 68;
+
 	CoreBasePlate(basewidth=basewidth, centralBoxLength=centralBoxLength, 
 					  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
 					  tailScaleFactor=tailScaleFactor, shaftOffset=shaftOffset);
+
+	// board
+	translate([-30,-20-piLength,0])
+		cube([60, 100,22+piHeight]);
+
+	// SD Card
+	translate([-16,-50-piLength,7+piHeight])
+		cube([28, 50,5]);
+
+	// audio + vga
+	translate([-37,10-piLength,10])
+		cube([10, 40,10+piHeight]);
 
 	translate([-basewidth/2,-centralBoxLength+shaftOffset,baseThickness])
 		polyhedron
