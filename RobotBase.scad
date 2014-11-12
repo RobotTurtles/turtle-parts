@@ -18,7 +18,7 @@ module RobotBase(basewidth=92.5)
 	bottomPlateThickness = 5;
 	motorCenterOffset = 20;
 
-	xPosition = 25;
+	xPosition = 30;
 	tieWidth = 5;
 	tieLength = 3;
 	batteryHeight = 53;
@@ -44,7 +44,8 @@ module RobotBase(basewidth=92.5)
 	difference(){
 		union()
 		{
-			CoreBasePlate(basewidth, centralBoxLength, baseThickness, headScaleFactor, tailScaleFactor);
+			CoreBasePlate(basewidth, centralBoxLength, 
+							  baseThickness, headScaleFactor, tailScaleFactor);
 
 			// Add Battery Box
 			translate([0,-batteryBoxY,batteryBoxTranslationZ])
@@ -79,7 +80,7 @@ module RobotBase(basewidth=92.5)
 		translate([0,-centralBoxLength+batteryBoxY-1,18])
 			mirror([0,0,1])
 				rotate([0,0,180])
-					#BatteryBoxCavity();
+					BatteryBoxCavity();
 
 
 		// Zip Tie Holes
