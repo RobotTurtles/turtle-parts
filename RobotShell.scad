@@ -89,7 +89,7 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 	t5 = [tentWidth/2,centralBoxLength,h];
 
 	p6 = [tentWidth/2, centralBoxLength+h,0];
-	p7 = [tentWidth/2, -h,0];
+	p7 = [tentWidth/2, -2*h,0];
 
 	piHeight = 8;
 	piLength = 69;
