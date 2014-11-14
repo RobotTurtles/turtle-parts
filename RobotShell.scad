@@ -66,7 +66,7 @@ module RobotShell(basewidth=92.5)
 			sphere(d=30);
 	
 		translate([0,0,0])
-			InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
+			#InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
 	}
 }
 RobotShell();
@@ -77,20 +77,22 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 {
 	headLength = basewidth/2 * headScaleFactor;
 	tailLength = basewidth/2 * tailScaleFactor;
-	h=basewidth/2;
-	p0 = [basewidth,centralBoxLength,0];
-	p1 = [basewidth,0,0];
+	h=20;
+
+	tentWidth=65;
+	p0 = [tentWidth,centralBoxLength,0];
+	p1 = [tentWidth,0,0];
 	p2 = [0,0,0];
 	p3 = [0,centralBoxLength,0];
 
-	t4 = [basewidth/2,0,h];
-	t5 = [basewidth/2,centralBoxLength,h];
+	t4 = [tentWidth/2,0,h];
+	t5 = [tentWidth/2,centralBoxLength,h];
 
-	p6 = [basewidth/2, centralBoxLength+headLength,0];
-	p7 = [basewidth/2, -tailLength,0];
+	p6 = [tentWidth/2, centralBoxLength+h,0];
+	p7 = [tentWidth/2, -h,0];
 
-	piHeight = 10;
-	piLength = 68;
+	piHeight = 8;
+	piLength = 69;
 
 	CoreBasePlate(basewidth=basewidth, centralBoxLength=centralBoxLength, 
 					  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
@@ -108,7 +110,7 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 	translate([-37,10-piLength,10])
 		cube([10, 40,10+piHeight]);
 
-	translate([-basewidth/2,-centralBoxLength+shaftOffset,baseThickness])
+	translate([-tentWidth/2,-centralBoxLength+shaftOffset,baseThickness+piHeight+10])
 		polyhedron
 		(
 			points=[p0,p1,p2,p3, // the four points at base
