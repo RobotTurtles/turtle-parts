@@ -64,9 +64,18 @@ module RobotShell(basewidth=92.5)
 			cube([200,200,200]);
 		translate([0,25,25])
 			sphere(d=30);
-	
-		translate([0,0,0])
-			#InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
+		translate([-shellWidth/2,-140,15])
+			cube([shellWidth, 50, 40]);
+
+		translate([-10,0,0])
+			cube([20, 20, 30]);	
+
+		translate([0,-5,0])
+			InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
+
+		BasePlateHolePattern(basewidth=shellWidth, centralBoxLength=centralBoxLength, 
+						  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
+						  tailScaleFactor=tailScaleFactor);
 	}
 }
 RobotShell();
@@ -79,7 +88,7 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 	tailLength = basewidth/2 * tailScaleFactor;
 	h=20;
 
-	tentWidth=65;
+	tentWidth=60;
 	p0 = [tentWidth,centralBoxLength,0];
 	p1 = [tentWidth,0,0];
 	p2 = [0,0,0];
@@ -98,19 +107,23 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 					  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
 					  tailScaleFactor=tailScaleFactor, shaftOffset=shaftOffset);
 
-	// board
-	translate([-30,-20-piLength,0])
-		cube([60, 100,22+piHeight]);
+	mirror([1,0,0])
+	union()
+	{
+		// board
+		translate([-30,-20-piLength,0])
+			cube([60, 100,22+piHeight]);
 
-	// SD Card
-	translate([-16,-50-piLength,7+piHeight])
-		cube([28, 50,5]);
+		// SD Card
+		translate([-16,-50-piLength,7+piHeight])
+			cube([28, 50,5]);
 
-	// audio + vga
-	translate([-37,10-piLength,10])
-		cube([10, 40,10+piHeight]);
+		// audio + vga
+		translate([-37,10-piLength,10])
+			cube([10, 40,10+piHeight]);
+	}
 
-	translate([-tentWidth/2,-centralBoxLength+shaftOffset,baseThickness+piHeight+10])
+	translate([-tentWidth/2,-centralBoxLength+shaftOffset,baseThickness+20])
 		polyhedron
 		(
 			points=[p0,p1,p2,p3, // the four points at base

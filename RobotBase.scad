@@ -62,6 +62,10 @@ module RobotBase(basewidth=92.5)
 				}
 		}
 
+		// Hole Pattern
+		BasePlateHolePattern(basewidth, centralBoxLength, 
+							  baseThickness, headScaleFactor, tailScaleFactor);
+
 		// Battery Cover
 		translate([0,-centralBoxLength+batteryBoxY+1.5,batteryBoxTranslationZ+13.1])
 			mirror([0,1,0])
