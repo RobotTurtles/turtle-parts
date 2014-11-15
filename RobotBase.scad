@@ -68,7 +68,7 @@ module RobotBase(basewidth=92.5)
 
 		// Battery Cover
 		translate([0,-centralBoxLength+batteryBoxY+1.5,batteryBoxTranslationZ+13.1])
-			mirror([0,1,0])
+				mirror([0,1,0])
 					BatteryBoxCoverCavity();
 
 		// Left Motor
@@ -81,10 +81,9 @@ module RobotBase(basewidth=92.5)
 				StandardServo();
 
 		// Battery Cavity
-		translate([0,-centralBoxLength+batteryBoxY-1,18])
+		translate([0,-54-batteryBoxY-5,18])
 			mirror([0,0,1])
-				rotate([0,0,180])
-					BatteryBoxCavity();
+				#BatteryBoxCavity();
 
 
 		// Zip Tie Holes
