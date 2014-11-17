@@ -12,3 +12,6 @@ http://www.adafruit.com/products/1955
 
 Extra Long Header Pin (to attach servos to bread board
 http://www.adafruit.com/products/400
+
+4 AA Batteries
+[Any store will do]
