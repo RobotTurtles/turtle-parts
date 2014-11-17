@@ -66,6 +66,10 @@ module RobotBase(basewidth=92.5)
 		BasePlateHolePattern(basewidth, centralBoxLength, 
 							  baseThickness, headScaleFactor, tailScaleFactor);
 
+		// Hole Pattern (For Screw Head)
+		BaseInsetPlateHolePattern(basewidth, centralBoxLength, 
+							  baseThickness, headScaleFactor, tailScaleFactor);
+
 		// Battery Cover
 		translate([0,-centralBoxLength+batteryBoxY+1.5,batteryBoxTranslationZ+13.1])
 				mirror([0,1,0])
@@ -83,7 +87,7 @@ module RobotBase(basewidth=92.5)
 		// Battery Cavity
 		translate([0,-54-batteryBoxY-5,18])
 			mirror([0,0,1])
-				#BatteryBoxCavity();
+				BatteryBoxCavity();
 
 
 		// Zip Tie Holes

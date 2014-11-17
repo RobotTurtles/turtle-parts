@@ -6,7 +6,7 @@
 module BatteryDualContact()
 {
 	// Overall Properties
-	thickness = .6;
+	thickness = .69;
 
 	// Lower Tabs
 	bottomTabHeight = 1.5;
@@ -29,7 +29,7 @@ module BatteryDualContact()
 	contactFromCenter = 11.51/2;
 
 	// Noch
-	nochWidth = 2.5;
+	nochWidth = 1.95;
 	nochHeight = 1.5;
 	nochThickness = thickness;
 	nochFromCenter = contactFromCenter;

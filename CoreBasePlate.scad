@@ -24,15 +24,35 @@ module CoreBasePlate(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10
 
 module BasePlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10, headScaleFactor=0.5, tailScaleFactor=1.2, shaftOffset=8)
 {
-		translate([-3,0,0])
-			cube([6,10,baseThickness]);	
-		translate([15,22,0])
-			cylinder(baseThickness, d=5);
-		translate([-15,22,0])
-			cylinder(baseThickness, d=5);
-		translate([basewidth/2-6,-65,0])
-			cylinder(baseThickness, d=5);
-		translate([-basewidth/2+6,-65,0])
-			cylinder(baseThickness, d=5);
+	holeDiamter = 3;
+	// Servo Hole
+	translate([-3,10,0])
+		cube([6,10,baseThickness]);	
+
+	// Screws
+	translate([15,22,0])
+		cylinder(baseThickness, d=holeDiamter);
+	translate([-15,22,0])
+		cylinder(baseThickness, d=holeDiamter);
+	translate([basewidth/2-6,-65,0])
+		cylinder(baseThickness, d=holeDiamter);
+	translate([-basewidth/2+6,-65,0])
+			cylinder(baseThickness, d=holeDiamter);
 }
 //BasePlateHolePattern();
+
+module BaseInsetPlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10, headScaleFactor=0.5, tailScaleFactor=1.2, shaftOffset=8)
+{
+	holeDiamter = 6;
+
+	// Screws
+	translate([15,22,0])
+		cylinder(baseThickness/2, d=holeDiamter);
+	translate([-15,22,0])
+		cylinder(baseThickness/2, d=holeDiamter);
+	translate([basewidth/2-6,-65,0])
+		cylinder(baseThickness/2, d=holeDiamter);
+	translate([-basewidth/2+6,-65,0])
+			cylinder(baseThickness/2, d=holeDiamter);
+}
+//BaseInsetPlateHolePattern();
