@@ -1,5 +1,5 @@
-Arduino Uno - program this to talk to the motors/servos
-http://www.adafruit.com/products/50
+Raspberry Pi
+http://www.mcmelectronics.com/basket.aspx?sid=0c4bce4b-b6e2-4957-a6e3-b2b527f23322
 
 continuous rotation servos x 2 - these can be used for the turtle legs.
 http://www.adafruit.com/products/154
