@@ -44,15 +44,16 @@ module BasePlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThick
 module BaseInsetPlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10, headScaleFactor=0.5, tailScaleFactor=1.2, shaftOffset=8)
 {
 	holeDiamter = 6;
+	innerHoleDiameter = 3;
 
 	// Screws
 	translate([15,22,0])
-		cylinder(baseThickness/2, d=holeDiamter);
+		cylinder(baseThickness/2, d1=holeDiamter, d2=innerHoleDiameter);
 	translate([-15,22,0])
-		cylinder(baseThickness/2, d=holeDiamter);
+		cylinder(baseThickness/2, d1=holeDiamter, d2=innerHoleDiameter);
 	translate([basewidth/2-6,-65,0])
-		cylinder(baseThickness/2, d=holeDiamter);
+		cylinder(baseThickness/2, d1=holeDiamter, d2=innerHoleDiameter);
 	translate([-basewidth/2+6,-65,0])
-			cylinder(baseThickness/2, d=holeDiamter);
+			cylinder(baseThickness/2, d1=holeDiamter, d2=innerHoleDiameter);
 }
 //BaseInsetPlateHolePattern();
