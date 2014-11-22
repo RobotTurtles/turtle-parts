@@ -5,10 +5,10 @@
  * Description: 
  *     This is a "wheel" to be used by the robot
  */
-module RobotLeg(radius=15)
+module RobotLeg(radius=20)
 {
 	width = 5;
-	servoMountDiameter = 4;
+	servoMountDiameter = 2.5;
 	screwDiameter = 6;
 	screwInset = 1.5;
 
