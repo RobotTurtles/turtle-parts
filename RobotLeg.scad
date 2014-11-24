@@ -7,10 +7,10 @@
  */
 module RobotLeg(radius=25)
 {
-	width = 5;
-	servoMountDiameter = 2.48+.65;
-	screwDiameter = 5.92+.65;
-	screwInset = 3;
+	width = 6;
+	servoMountDiameter = 2.52+.65;
+	screwDiameter = 5.91+.3;
+	servoInset = 3.75;
 
 	difference()
 	{
@@ -19,8 +19,8 @@ module RobotLeg(radius=25)
 			cylinder(r=radius, width);
 		}
 		cylinder(d=servoMountDiameter,width);
-		translate([0,0,width-screwInset])
-			cylinder(d=screwDiameter, screwInset);
+		translate([0,0,width-servoInset])
+			cylinder(d=screwDiameter, servoInset);
 	}
 }
 RobotLeg();

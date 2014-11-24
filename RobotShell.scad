@@ -6,6 +6,7 @@
  *
  */
 include <CoreBasePlate.scad>;
+include <WebCam.scad>;
 
 module RobotShell(basewidth=92.5)
 {
@@ -60,21 +61,19 @@ module RobotShell(basewidth=92.5)
 						  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
 						  tailScaleFactor=tailScaleFactor);
 		}
+		// Remove anything in negative z
 		translate([-100,-150,-200])
 			cube([200,200,200]);
-		translate([0,25,25])
-			sphere(d=30);
-		translate([-shellWidth/2,-140,15])
-			cube([shellWidth, 50, 40]);
 
-		translate([-10,0,0])
-			cube([20, 20, 30]);	
+		// WebCam
+		translate([0,0,25])
+			WebCam();
 
 		translate([0,-5,0])
-			InnerCavity(basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
+			InnerCavity(baseThickness=20, basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
 
 		BasePlateHolePattern(basewidth=shellWidth, centralBoxLength=centralBoxLength, 
-						  baseThickness=baseThickness, headScaleFactor=headScaleFactor, 
+						  baseThickness=baseThickness+5, headScaleFactor=headScaleFactor, 
 						  tailScaleFactor=tailScaleFactor);
 	}
 }
@@ -86,9 +85,9 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 {
 	headLength = basewidth/2 * headScaleFactor;
 	tailLength = basewidth/2 * tailScaleFactor;
-	h=20;
+	h=32;
 
-	tentWidth=60;
+	tentWidth=basewidth;
 	p0 = [tentWidth,centralBoxLength,0];
 	p1 = [tentWidth,0,0];
 	p2 = [0,0,0];
@@ -108,22 +107,22 @@ module InnerCavity(basewidth=100,maxHeight=50,centralBoxLength=100,
 					  tailScaleFactor=tailScaleFactor, shaftOffset=shaftOffset);
 
 	mirror([1,0,0])
-	union()
-	{
-		// board
-		translate([-30,-20-piLength,0])
-			cube([60, 100,22+piHeight]);
+//	union()
+//	{
+//		// board
+//		translate([-30,-20-piLength,0])
+//			cube([60, 100,22+piHeight]);
+//
+//		// SD Card
+//		translate([-16,-50-piLength,7+piHeight])
+//			cube([28, 50,5]);
+//
+//		// audio + vga
+//		translate([-37,10-piLength,10])
+//			cube([10, 40,10+piHeight]);
+//	}
 
-		// SD Card
-		translate([-16,-50-piLength,7+piHeight])
-			cube([28, 50,5]);
-
-		// audio + vga
-		translate([-37,10-piLength,10])
-			cube([10, 40,10+piHeight]);
-	}
-
-	translate([-tentWidth/2,-centralBoxLength+shaftOffset,baseThickness+20])
+	translate([-tentWidth/2,-centralBoxLength+shaftOffset,baseThickness])
 		polyhedron
 		(
 			points=[p0,p1,p2,p3, // the four points at base
