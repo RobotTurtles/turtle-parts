@@ -6,14 +6,25 @@ module WebCam(width=36, height=5, depth=60,usbPlugWidth=15, usbPlugHeight=7, cab
 	translate([-width/2,0,0])
 		cube([width,depth,height]);
 
-	// Space for USB Plug
-	translate([-usbPlugWidth/2, 0, 0])
-		cube([usbPlugWidth, depth, usbPlugHeight]);
+	p0 = [0,depth,0];
+	p1 = [width,depth,0];
+	p2 = [width,0,0];
+	p3 = [0,0,0];
+
+	t4 = [width/2,depth,height];
+	t5 = [width/2,0,height];
 
 	// USB Cable
-	translate([0, 0, height+cableDiameter/2])
-		rotate([-90,0,0])
-			cylinder(d=cableDiameter, depth, $fn=100);
-
+	translate([-width/2, 0, height])
+		polyhedron
+		(
+			points=[p0,p1,p2,p3,t4,t5],
+			faces = [[0,2,1], [0,3,2], // Bottom
+						[0,1,4], [4,2,5], // sides
+						[4,1,2], 
+						[5,2,3],
+						[3,4,5], [3,0,4]
+					  ]
+		);
 }
 //WebCam();
