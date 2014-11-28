@@ -43,6 +43,9 @@ module BatteryDualContact()
 			translate([-overallWidth/2, 0,0])
 				cube([overallWidth, mainBodyHeight,thickness]);
 			
+			translate([-bottomTabDistanceFromCenter,0,nochThickness])
+				cube([bottomTabDistanceFromCenter*2,middleCutHeight, nochThickness]);
+
 			// Bottom Tabs
 			translate([-bottomTabWidth/2 - bottomTabDistanceFromCenter,-bottomTabHeight,0])
 				cube([bottomTabWidth, bottomTabHeight, thickness]);
@@ -62,11 +65,12 @@ module BatteryDualContact()
 				cube([nochWidth, nochHeight, nochThickness]);
 			translate([-nochWidth/2 + nochFromCenter, nochFromBottom-nochHeight, -nochThickness])
 				cube([nochWidth, nochHeight, nochThickness]);
+
 		}
 		
 		// Middle Cut
 		translate([-middleCutWidth/2,0,0])
-			cube([middleCutWidth, middleCutHeight,thickness]);
+			cube([middleCutWidth, middleCutHeight,thickness+nochThickness]);
 	}
 }
 

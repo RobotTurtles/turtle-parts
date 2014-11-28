@@ -12,7 +12,7 @@ module RobotShell(basewidth=92.5)
 {
 	GOLDEN_RATIO = 1.618;
 	centralBoxLength=71.043;
-	baseThickness=10;
+	baseThickness=15;
 	headScaleFactor=0.5;
 	tailScaleFactor=1.2;
 	heightScaleFactor = .4; //1/GOLDEN_RATION
@@ -72,7 +72,7 @@ module RobotShell(basewidth=92.5)
 			WebCam();
 
 		translate([0,-5,0])
-			InnerCavity(baseThickness=20, basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
+			InnerCavity(baseThickness=baseThickness+10, basewidth=shellWidth-20, centralBoxLength=centralBoxLength);
 
 		BasePlateHolePattern(basewidth=shellWidth, centralBoxLength=centralBoxLength, 
 						  baseThickness=baseThickness+5, headScaleFactor=headScaleFactor, 
