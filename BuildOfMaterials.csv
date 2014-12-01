@@ -1,14 +1,16 @@
-Item #	Qty	Description	Part # if applicable	 Unit Cost 	Online Supplier	Link	 Unit Price 	Local Supplier	Link	Price	 Expected Total Cost 
-1	1	Raspberry Pi A+ or B+		 $20-$40 	MCM Electronics	http://www.mcmelectronics.com/product/83-16459	 $20.00 	Fry's Electronics	http://www.frys.com/product/8258726	$39.99 	 $20.00 
-2	2	Continuous Rotation Servos		 $13-$15 	Ada Fruit	http://www.adafruit.com/products/154	 $14.00 	Fry's Electronics	http://www.frys.com/product/5230077	$12.99 	 $25.98 
-3	1	Breadboard		 $4-$6 	Ada Fruit	http://www.adafruit.com/products/64	 $5.00 	Fry's Electronics	http://www.frys.com/product/7824239?site=sr:SEARCH:MAIN_RSLT_PG	$6 	 $5.00 
-4	1	Wires Male/Female		 $4-6 	Ada Fruit	http://www.adafruit.com/products/1952	 $3.95 				 $3.95 
-5	1	Jumper Wires (From ethernet is fine)									
-6	1	Extra Long Headers		 $3.00 		http://www.adafruit.com/products/400	$3.00 				 $3.00 
-7	2	Zip Ties		 $0.20 							 $0.40 
-8	2	AA Right Handed Dual Contact	5213K-ND	 $0.14-0.39 	Digikiey	http://www.digikey.com/product-search/en/battery-products/battery-holders-clips-contacts/393250?k=5213K-ND	 $0.39 				 $0.78 
-9	1	AA Left Handed Dual Contact	5214K-ND	 $0.14-0.39 	Digikiey	http://www.digikey.com/product-search/en?KeyWords=5214K-ND	 $0.39 				 $0.39 
-10	1	AA Positive Terminal	5223K-ND	 $0.06-0.17 	Digikiey	http://www.digikey.com/product-search/en/battery-products/battery-holders-clips-contacts/393250?k=5223K-ND	 $0.11 				 $0.11 
-	1	AA Negative Terminal	5201K-ND	 $0.11-0.28 	Digikiey	http://www.digikey.com/product-search/en?KeyWords=5201K-ND&WT.z_header=search_go	 $0.28 				 $0.28 
-											
-									Total Cost		 $59.89 
+Item #,Qty,Description,Part # if applicable, Unit Cost ,Online Supplier,Link, Unit Price ,Local Supplier,Link,Price, Expected Total Cost 
+1,1,Raspberry Pi A+ or B+,, $20-$40 ,MCM Electronics,http://www.mcmelectronics.com/product/83-16459,$20.00 ,Fry's Electronics,http://www.frys.com/product/8258726,$39.99 ,$20.00 
+2,2,Continuous Rotation Servos,, $13-$15 ,Ada Fruit,http://www.adafruit.com/products/154,$14.00 ,Fry's Electronics,http://www.frys.com/product/5230077,$12.99 ,$25.98 
+3,1,Breadboard,, $4-$6 ,Ada Fruit,http://www.adafruit.com/products/64,$5.00 ,Fry's Electronics,http://www.frys.com/product/7824239?site=sr:SEARCH:MAIN_RSLT_PG,$6 ,$5.00 
+4,1,Wires Male/Female,, $4-6 ,Ada Fruit,http://www.adafruit.com/products/1952,$3.95 ,,,,$3.95 
+5,1,Jumper Wires (From ethernet is fine),,,,,,,,,
+6,1,Extra Long Headers,,$3.00 ,,http://www.adafruit.com/products/400,$3.00 ,,,,$3.00 
+7,2,Zip Ties,,$0.20 ,,,,,,,$0.40 
+8,2,AA Right Handed Dual Contact,5213K-ND, $0.14-0.39 ,Digikiey,http://www.digikey.com/product-search/en/battery-products/battery-holders-clips-contacts/393250?k=5213K-ND,$0.39 ,,,,$0.78 
+9,1,AA Left Handed Dual Contact,5214K-ND, $0.14-0.39 ,Digikiey,http://www.digikey.com/product-search/en?KeyWords=5214K-ND,$0.39 ,,,,$0.39 
+10,1,AA Positive Terminal,5223K-ND, $0.06-0.17 ,Digikiey,http://www.digikey.com/product-search/en/battery-products/battery-holders-clips-contacts/393250?k=5223K-ND,$0.11 ,,,,$0.11 
+11,1,AA Negative Terminal,5201K-ND, $0.11-0.28 ,Digikiey,http://www.digikey.com/product-search/en?KeyWords=5201K-ND&WT.z_header=search_go,$0.28 ,,,,$0.28 
+12,1,Edimax EW-7811UN 150Mbps Wireless Nano USB Adapter,,6.99,Amazon,http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY,,,,,6.99
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,Total Cost,,$66.88 
