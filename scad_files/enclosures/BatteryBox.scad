@@ -5,7 +5,7 @@
  */
 
 include <BatteryBoxCover.scad>;
-include <BatteryContacts.scad>;
+include <../libraries/BatteryContacts.scad>;
 
 module BatteryBoxCavity(batteryHeight=55,batteryDiameter=14.5,offset=.1)
 {

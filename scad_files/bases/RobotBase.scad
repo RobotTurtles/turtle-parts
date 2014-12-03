@@ -4,12 +4,12 @@
  *     Base that robot "sits" on. Mount point for servos. All Units in mm
  * Origin is at center of body lengthwise, and along the "legs"
  *
- * Author: Alex Gutierrez (firstname.lastname AT gmail)
+ * Author: Alex Gutierrez (turtles AT 2d12 DOT net)
  */
 
-include <StandardServo.scad>;
-include <BatteryBox.scad>;
-include <CoreBasePlate.scad>;
+include <../libraries/StandardServo.scad>;
+include <../enclosures/BatteryBox.scad>;
+include <../common/CoreBasePlate.scad>;
 
 module RobotBase(basewidth=92.5)
 {

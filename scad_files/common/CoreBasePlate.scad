@@ -1,3 +1,8 @@
+/**
+ * Name: CoreBasePlate.scad
+ * Description:
+ *     Base Plate that everything is attached to
+ */
 module CoreBasePlate(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10, headScaleFactor=0.5, tailScaleFactor=1.2, shaftOffset=8)
 {
 		translate([-basewidth/2, -centralBoxLength+shaftOffset,0])

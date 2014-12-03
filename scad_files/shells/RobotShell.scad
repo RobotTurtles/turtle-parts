@@ -5,8 +5,8 @@
  *     Robot Shell
  *
  */
-include <CoreBasePlate.scad>;
-include <WebCam.scad>;
+include <../common/CoreBasePlate.scad>;
+include <../common/WebCam.scad>;
 
 module RobotShell(basewidth=92.5)
 {
