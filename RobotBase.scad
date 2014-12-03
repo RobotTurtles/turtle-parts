@@ -39,7 +39,7 @@ module RobotBase(basewidth=92.5)
 
 	centralBoxLength = baselength - headContributionToLength - tailContributionToLength;
 	echo(centralBoxLength);
-	batteryBoxY = 34;
+	batteryBoxY = 36;
 	// Create Main Body
 	difference(){
 		union()
@@ -48,9 +48,9 @@ module RobotBase(basewidth=92.5)
 							  baseThickness, headScaleFactor, tailScaleFactor);
 
 			// Add Battery Box
-			translate([0,-batteryBoxY,batteryBoxTranslationZ])
+			translate([0,-batteryBoxY+5,batteryBoxTranslationZ])
 				mirror([0,1,0])
-						BatteryBox(batteryHeight=batteryHeight);
+						BatteryBox(batteryHeight=batteryHeight+5);
 
 			// Add Caster
 			translate([0, -centralBoxLength-35, 15])
@@ -71,9 +71,9 @@ module RobotBase(basewidth=92.5)
 							  baseThickness, headScaleFactor, tailScaleFactor);
 
 		// Battery Cover
-		translate([0,-centralBoxLength+batteryBoxY+1.5,batteryBoxTranslationZ+13.1])
+		translate([0,-batteryBoxY-1,batteryBoxTranslationZ+13.1])
 				mirror([0,1,0])
-					BatteryBoxCoverCavity();
+					#BatteryBoxCoverCavity();
 
 		// Left Motor
 		translate([-basewidth/2 -.01,0,bottomPlateThickness])
