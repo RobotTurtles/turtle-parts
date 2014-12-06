@@ -18,12 +18,16 @@ module RobotLeg(radius=25)
 		union()
 		{
 			cylinder(r=radius, width);
+			CircleOfSpikes(radius=radius, width = width);
 			difference()
 			{
 				scale([1,GOLDEN_RATIO,1])
-					cylinder(r=radius, width);
-				translate([-radius,0,0])
-					cube([radius*2, radius*GOLDEN_RATIO,width]);
+					union(){
+						cylinder(r=radius, width);
+						CircleOfSpikes(radius=radius, width = width);
+					}
+				translate([-radius*1.5,0,0])
+					cube([radius*3, radius*GOLDEN_RATIO*2,width]);
 			}
 
 		}
@@ -33,3 +37,45 @@ module RobotLeg(radius=25)
 	}
 }
 RobotLeg();
+
+function calc_y(x,r) = sqrt(r*r - x*x);
+function calc_angle(x, radius) = -90 * (x/radius);
+
+module CircleOfSpikes(width = 6, radius = 25, stepSize=.5, spikeHeight=2)
+{
+	
+	for ( x = [-radius : stepSize : radius] )
+	{
+		translate([x,calc_y(x,radius),0])
+			rotate([0,0,calc_angle(x,radius)])
+				Spike(thickness=width);
+	}
+	for ( x = [-radius : stepSize : radius] )
+	{
+		translate([x,-calc_y(x,radius),0])
+			rotate([0,0,calc_angle(x,radius)])
+				Spike(thickness=width, spikeHeight=spikeHeight);
+	}
+}
+//CircleOfSpikes();
+
+module Spike(spikeWidth = 1, spikeHeight = 1, thickness = 3)
+{
+	p0 = [0,0,0];
+	p1 = [spikeWidth/2, spikeHeight, 0];
+	p2 = [spikeWidth, 0, 0];
+	t3 = [0,0,thickness];
+	t4 = [spikeWidth/2, spikeHeight, thickness];
+	t5 = [spikeWidth, 0, thickness];
+	
+	translate([-spikeWidth/2, -spikeHeight/4,0])
+		polyhedron(
+			points = [p0,p1,p2,t3,t4,t5],
+			faces = [[0,2,1], [3,4,5], // Top/Bottom
+						[0,1,3], [1,4,3],
+						[1,2,4], [2,5,4],
+						[0,3,5], [0,5,2]
+						]
+			);
+}
+//Spike();
