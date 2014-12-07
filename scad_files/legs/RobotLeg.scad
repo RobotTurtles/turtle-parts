@@ -38,23 +38,18 @@ module RobotLeg(radius=25)
 }
 RobotLeg();
 
-function calc_y(x,r) = sqrt(r*r - x*x);
+function calc_y(theta,r) = r * sin(theta);
+function calc_x(theta,r) = r * cos(theta);
 function calc_angle(x, radius) = -90 * (x/radius);
 
-module CircleOfSpikes(width = 6, radius = 25, stepSize=.5, spikeHeight=2)
+module CircleOfSpikes(width = 6, radius = 25, stepSize=2, spikeHeight=2)
 {
 	
-	for ( x = [-radius : stepSize : radius] )
+	for ( theta = [-180 : stepSize : 180] )
 	{
-		translate([x,calc_y(x,radius),0])
-			rotate([0,0,calc_angle(x,radius)])
+		translate([calc_x(theta,radius),calc_y(theta,radius),0])
+			rotate([0,0,theta-90])
 				Spike(thickness=width);
-	}
-	for ( x = [-radius : stepSize : radius] )
-	{
-		translate([x,-calc_y(x,radius),0])
-			rotate([0,0,calc_angle(x,radius)])
-				Spike(thickness=width, spikeHeight=spikeHeight);
 	}
 }
 //CircleOfSpikes();
