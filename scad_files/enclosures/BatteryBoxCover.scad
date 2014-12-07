@@ -3,8 +3,12 @@
  * Description:
  *     Battery Box Cover
  */
-module BatteryBoxCover(width = 67, length = 60, cThickness = 4, tabThickness = 2, screwDiameter =3, headDiameter=6, mountWidth=10, tabWidth=5)
+module BatteryBoxCover(batteryDiameter=15, batteryHeight=55, cells=5, cThickness = 4, tabThickness = 2, screwDiameter =3, headDiameter=6, mountWidth=10, tabWidth=5)
 {
+	rim = .5;
+	width = batteryDiameter * cells + rim;
+	length = batteryHeight + rim;
+
 	module batteryTab()
 	{
 		translate([-tabWidth/2,0,0])
@@ -53,19 +57,14 @@ module BatteryBoxCover(width = 67, length = 60, cThickness = 4, tabThickness = 2
 }
 //BatteryBoxCover();
 
-module PrintableBoxCover()
-{
-	BatteryBoxCover(mountWidth=9.5, width=66.5, length=59.5, tabThickness=2.1, tabWith=4.5);
-}
-//PrintableBoxCover();
-
-module BatteryBoxCoverCavity()
+module BatteryBoxCoverCavity(batteryHeight=55)
 {
 	mountWidth=20;
 	cThickness=4;
 	union()
 	{
-		BatteryBoxCover();
+		scale([1.005, 1.01, 1.01])
+			BatteryBoxCover(batteryHeight=batteryHeight);
 		translate([0,-4,0])
 			union()
 			{

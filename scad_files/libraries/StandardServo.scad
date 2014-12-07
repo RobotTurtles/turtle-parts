@@ -14,7 +14,7 @@ module StandardServo()
 	mountWidth = 3;
 	mountPoint = 15;
 	servoPlugWidth = 5;
-	servoPlugDepth = 7;
+	servoPlugDepth = 6;
 	cableWidth = 2;
 	cableHeight = 5;
 
@@ -31,8 +31,8 @@ module StandardServo()
 		// Servo Plug
 		translate([servoBodyWidth-servoPlugWidth,(mountLength-servoBodyLength)/2-servoPlugDepth,0])
 			cube([servoPlugWidth,servoPlugDepth,servoHeight]);
-		translate([servoBodyWidth,.5,13.5-cableHeight])
-			cube([cableWidth,mountLength,cableHeight]);
+		translate([servoBodyWidth,1.5,13.5-cableHeight])
+			cube([cableWidth,mountLength,cableHeight+10]);
 	
 	}
 }
