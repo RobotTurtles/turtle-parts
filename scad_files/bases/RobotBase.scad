@@ -73,7 +73,7 @@ module RobotBase(basewidth=92.5)
 		// Battery Cover
 		translate([0,-batteryBoxY-1,batteryBoxTranslationZ+13.1])
 				mirror([0,1,0])
-					#BatteryBoxCoverCavity();
+					BatteryBoxCoverCavity();
 
 		// Left Motor
 		translate([-basewidth/2 -.01,0,bottomPlateThickness])
