@@ -11,7 +11,7 @@ include <../libraries/StandardServo.scad>;
 include <../enclosures/BatteryBox.scad>;
 include <../common/CoreBasePlate.scad>;
 
-module RobotBase(basewidth=92.5)
+module RobotBase(basewidth=94)
 {
 	GOLDEN_RATIO = 1.61803398875;
 	baseThickness = 10;
