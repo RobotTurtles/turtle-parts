@@ -11,7 +11,7 @@ include <../libraries/StandardServo.scad>;
 include <../enclosures/BatteryBox.scad>;
 include <../common/CoreBasePlate.scad>;
 
-module RobotBase(basewidth=94)
+module RobotBase(basewidth=96)
 {
 	GOLDEN_RATIO = 1.61803398875;
 	baseThickness = 10;
@@ -81,10 +81,10 @@ module RobotBase(basewidth=94)
 
 		// Battery Cavity
 		translate([0,-54-batteryBoxY,batteryBoxTranslationZ])
-			BatteryBoxCavity();
+			#BatteryBoxCavity();
 
 		// Battery Cover
-		translate([0,-batteryBoxY+1,batteryBoxTranslationZ+13.1])
+		translate([0,-batteryBoxY+1,batteryBoxTranslationZ+16])
 			mirror([0,1,0])
 				BatteryBoxCoverCavity();
 

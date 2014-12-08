@@ -88,7 +88,7 @@ module BatteryBoxCavity(batteryHeight=55,batteryDiameter=14.5,offset=.1,numBatte
 module BatteryBox(batteryHeight=54,numBatteries = 5, boxWallThickness = 3.5)
 {
 	batteryDiameter=15;
-	boxHeight = batteryDiameter+2;
+	boxHeight = batteryDiameter+5;
 	boxWidth = 15*numBatteries+boxWallThickness;
 	boxLength = batteryHeight+boxWallThickness*2;
 

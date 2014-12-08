@@ -33,7 +33,7 @@ module BatteryDualContact()
 	nochHeight = 1.5;
 	nochThickness = thickness;
 	nochFromCenter = contactFromCenter;
-	nochFromBottom = 3.51;
+	nochFromBottom = 3.51-bottomTabHeight;
 
 	difference()
 	{

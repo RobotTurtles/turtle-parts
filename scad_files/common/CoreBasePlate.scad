@@ -48,10 +48,11 @@ module BasePlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThick
 }
 //BasePlateHolePattern();
 
-module BaseInsetPlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10, headScaleFactor=0.5, tailScaleFactor=1.2, shaftOffset=8, insetFromEdge = 4.5)
+module BaseInsetPlateHolePattern(basewidth = 92.5, centralBoxLength=71.043, baseThickness=10, headScaleFactor=0.5, tailScaleFactor=1.2, shaftOffset=8, insetFromEdge = 5)
 {
 	holeDiamter = 8;
 	innerHoleDiameter = 3;
+	insetAmount =2;
 
 	// Screw Inset Holes
 	// Front

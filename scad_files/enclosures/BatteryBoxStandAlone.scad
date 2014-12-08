@@ -6,8 +6,9 @@ module BatteryBoxStandAlone(batteryHeight=54)
 	difference()
 	{
 		BatteryBox(batteryHeight=batteryHeight);
-		BatteryBoxCavity(batteryHeight=batteryHeight);
-		translate([0,-1,batteryDiameter-2])
+		translate([0,0,0])
+			#BatteryBoxCavity(batteryHeight=batteryHeight);
+		translate([0,-1,batteryDiameter+1])
 			BatteryBoxCoverCavity(batteryHeight=batteryHeight);
 
 	}
