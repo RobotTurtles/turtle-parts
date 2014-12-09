@@ -18,7 +18,7 @@ module RobotBase(basewidth=96)
 	bottomPlateThickness = 5;
 	motorCenterOffset = 20;
 
-	xPosition = 30;
+	xPosition = basewidth/2-12;
 	tieWidth = 5;
 	tieLength = 3;
 
@@ -36,7 +36,7 @@ module RobotBase(basewidth=96)
 
 	centralBoxLength = baselength - headContributionToLength - tailContributionToLength;
 
-	batteryBoxY = 37.5;
+	batteryBoxY = 41;
 	batteryBoxTranslationZ = 0;
 
 	// Create Main Body
@@ -71,11 +71,11 @@ module RobotBase(basewidth=96)
 
 
 		// Left Motor
-		translate([-basewidth/2 -2.25,3,bottomPlateThickness])
+		translate([-basewidth/2 -2.25,0,bottomPlateThickness])
 			StandardServo();
 
 		// Right Motor
-		translate([basewidth/2 +2.25,3,bottomPlateThickness])
+		translate([basewidth/2 +2.25,0,bottomPlateThickness])
 			mirror([1,0,0])
 				StandardServo();
 
