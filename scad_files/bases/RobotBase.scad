@@ -11,12 +11,13 @@ include <../libraries/StandardServo.scad>;
 include <../enclosures/BatteryBox.scad>;
 include <../common/CoreBasePlate.scad>;
 
-module RobotBase(basewidth=96)
+module RobotBase(basewidth=92.5)
 {
 	GOLDEN_RATIO = 1.61803398875;
 	baseThickness = 10;
 	bottomPlateThickness = 5;
 	motorCenterOffset = 20;
+	numBatteries = 4;
 
 	xPosition = basewidth/2-12;
 	tieWidth = 5;
@@ -49,7 +50,7 @@ module RobotBase(basewidth=96)
 			// Add Battery Box
 			translate([0,-batteryBoxY,batteryBoxTranslationZ])
 				mirror([0,1,0])
-						BatteryBox();
+						BatteryBox(numBatteries = numBatteries, boxWallThickness = 5);
 
 			// Add Caster
 			translate([0, -centralBoxLength-35, 15])
@@ -81,12 +82,12 @@ module RobotBase(basewidth=96)
 
 		// Battery Cavity
 		translate([0,-54-batteryBoxY,batteryBoxTranslationZ])
-			#BatteryBoxCavity();
+			#BatteryBoxCavity(numBatteries = numBatteries);
 
 		// Battery Cover
 		translate([0,-batteryBoxY+1,batteryBoxTranslationZ+16])
 			mirror([0,1,0])
-				BatteryBoxCoverCavity();
+				BatteryBoxCoverCavity(numBatteries = numBatteries);
 
 		// Zip Tie Holes
 		union()

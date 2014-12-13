@@ -8,7 +8,7 @@
 include <../common/CoreBasePlate.scad>;
 include <../common/WebCam.scad>;
 
-module RobotShell(basewidth=96)
+module RobotShell(basewidth=92.5)
 {
 	GOLDEN_RATIO = 1.618;
 	centralBoxLength=71.043;
