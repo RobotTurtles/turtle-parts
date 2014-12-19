@@ -42,25 +42,25 @@ function calc_y(theta,r) = r * sin(theta);
 function calc_x(theta,r) = r * cos(theta);
 function calc_angle(x, radius) = -90 * (x/radius);
 
-module CircleOfSpikes(width = 6, radius = 25, stepSize=2, spikeHeight=2)
+module CircleOfSpikes(width = 6, radius = 25, stepSize=5, spikeHeight=3)
 {
 	
 	for ( theta = [-180 : stepSize : 180] )
 	{
 		translate([calc_x(theta,radius),calc_y(theta,radius),0])
 			rotate([0,0,theta-90])
-				Spike(thickness=width);
+				Spike(thickness=width, spikeHeight=3);
 	}
 }
 //CircleOfSpikes();
 
-module Spike(spikeWidth = 1, spikeHeight = 1, thickness = 3)
+module Spike(spikeWidth = 3, spikeHeight = 2, thickness = 4)
 {
 	p0 = [0,0,0];
-	p1 = [spikeWidth/2, spikeHeight, 0];
+	p1 = [spikeWidth/2, spikeHeight, thickness/2 - .1];
 	p2 = [spikeWidth, 0, 0];
 	t3 = [0,0,thickness];
-	t4 = [spikeWidth/2, spikeHeight, thickness];
+	t4 = [spikeWidth/2, spikeHeight, thickness/2 + .1];
 	t5 = [spikeWidth, 0, thickness];
 	
 	translate([-spikeWidth/2, -spikeHeight/4,0])

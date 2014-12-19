@@ -7,6 +7,7 @@
  */
 include <../common/CoreBasePlate.scad>;
 include <../common/WebCam.scad>;
+include <../libraries/RockerSwitch.scad>;
 
 module RobotShell(basewidth=92.5)
 {
@@ -66,6 +67,11 @@ module RobotShell(basewidth=92.5)
 		// Remove anything in negative z
 		translate([-100,-150,-200])
 			cube([200,200,200]);
+
+		// Rocker Switch
+		translate([0,-centralBoxLength-shellWidth/2+9,baseThickness])
+			mirror([0,0,0])
+				RockerSwitch();
 
 		// WebCam
 		translate([0,0,25])
