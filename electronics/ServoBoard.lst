@@ -1,0 +1,22 @@
+eeschema (2013-07-07 BZR 4022)-stable  >> Creation date: 1/2/2015 10:41:28 AM
+#Cmp ( order = Reference )
+| C1         100 uF      
+| D1         LED         
+| K1         Left Servo  
+| K2         Right Servo 
+| P1         Pi GPIO Header
+| R1         100         
+| U1         7805        
+#End Cmp
+
+#Cmp ( order = Value )
+| 100 uF       C1        
+| LED          D1        
+| Left Servo   K1        
+| Right Servo  K2        
+| Pi GPIO Header P1        
+| 100          R1        
+| 7805         U1        
+#End Cmp
+
+#End List

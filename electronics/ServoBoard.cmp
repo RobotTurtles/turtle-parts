@@ -1,0 +1,59 @@
+Cmp-Mod V01 Created by CvPcb (2013-07-07 BZR 4022)-stable date = 1/2/2015 11:19:22 AM
+
+BeginCmp
+TimeStamp = /54A6DFA4;
+Reference = C1;
+ValeurCmp = 100 uF;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6DE7D;
+Reference = D1;
+ValeurCmp = LED;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6E166;
+Reference = K1;
+ValeurCmp = Left Servo;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6E177;
+Reference = K2;
+ValeurCmp = Right Servo;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6E06A;
+Reference = P1;
+ValeurCmp = Pi GPIO Header;
+IdModule  = PIN_ARRAY_20X2;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6EE84;
+Reference = P2;
+ValeurCmp = CONN_2;
+IdModule  = 2PIN_6mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6DC96;
+Reference = R1;
+ValeurCmp = 100;
+IdModule  = R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A6D8F3;
+Reference = U1;
+ValeurCmp = 7805;
+IdModule  = LM78XX;
+EndCmp
+
+EndListe
