@@ -36,7 +36,7 @@ $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
 Title "Robot Turtle Servo Board"
-Date "3 jan 2015"
+Date "4 jan 2015"
 Rev "0.01"
 Comp ""
 Comment1 ""
@@ -285,8 +285,6 @@ F 3 "" H 650 2250 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	1000 2150 1000 1650
-Wire Wire Line
 	1200 2800 1550 2800
 Connection ~ 1400 2900
 Wire Wire Line
@@ -346,4 +344,19 @@ NoConn ~ 2600 5400
 NoConn ~ 2250 4900
 NoConn ~ 1350 5400
 NoConn ~ 1150 4900
+$Comp
+L CONN_2 P7
+U 1 1 54A8EE48
+P 650 1850
+F 0 "P7" V 600 1850 40  0000 C CNN
+F 1 "CONN_2" V 700 1850 40  0000 C CNN
+F 2 "" H 650 1850 60  0000 C CNN
+F 3 "" H 650 1850 60  0000 C CNN
+	1    650  1850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1000 1650 1000 1750
+Wire Wire Line
+	1000 1950 1000 2150
 $EndSCHEMATC
