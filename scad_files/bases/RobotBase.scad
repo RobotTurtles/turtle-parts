@@ -8,6 +8,7 @@
  */
 
 include <../libraries/StandardServo.scad>;
+include <../libraries/RaspberryPiMountHoles.scad>;
 include <../enclosures/BatteryBox.scad>;
 include <../common/CoreBasePlate.scad>;
 
@@ -102,6 +103,10 @@ module RobotBase(basewidth=92.5)
 				cube([tieWidth,tieLength,30]);
 
 		}
+
+		// Raspberry Pi Mount
+		rotate([0,0,-90])
+		#RaspberryPiMountHoles();
 	}
 }
 
