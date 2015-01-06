@@ -14,7 +14,7 @@ module BatteryBoxCover(batteryDiameter=15, batteryHeight=55, cThickness = 4, tab
 	module batteryTab()
 	{
 		translate([-(tabWidth - tolerance)/2,0,0])
-			cube(center=false, size=[tabWidth - tolerance, 3, cThickness-tabThickness-tolerance]);
+			cube(center=false, size=[tabWidth - tolerance, 5, cThickness-tabThickness-tolerance]);
 	}
 
 	module screwMount()
@@ -59,7 +59,7 @@ module BatteryBoxCover(batteryDiameter=15, batteryHeight=55, cThickness = 4, tab
 }
 //BatteryBoxCover();
 
-module BatteryBoxCoverCavity(batteryHeight=55, numBatteries = 5)
+module BatteryBoxCoverCavity(batteryHeight=55, numBatteries = 4)
 {
 	mountWidth=20;
 	cThickness=4;

@@ -88,7 +88,7 @@ module RobotBase(basewidth=92.5)
 		// Battery Cover
 		translate([0,-batteryBoxY+1,batteryBoxTranslationZ+16])
 			mirror([0,1,0])
-				BatteryBoxCoverCavity(numBatteries = numBatteries);
+				#BatteryBoxCoverCavity(numBatteries = numBatteries);
 
 		// Zip Tie Holes
 		union()
