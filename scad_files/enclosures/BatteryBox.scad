@@ -7,7 +7,7 @@
 include <BatteryBoxCover.scad>;
 include <../libraries/BatteryContacts.scad>;
 
-module BatteryBoxCavity(batteryHeight=55,batteryDiameter=14.5,offset=.1,numBatteries = 4)
+module BatteryBoxCavity(batteryHeight=56,batteryDiameter=14.5,offset=.1,numBatteries = 4)
 {
 	function isTop(cells) = cells%2 == 0;
 	function numTopContacts(cells) = floor(cells/2);
