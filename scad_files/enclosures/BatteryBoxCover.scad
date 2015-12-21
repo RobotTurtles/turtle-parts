@@ -65,14 +65,14 @@ module BatteryBoxCoverCavity(batteryHeight=55, numBatteries = 4)
 	cThickness=4;
 	union()
 	{
-		scale([1.005, 1.01, 1.01])
+		scale([1.01, 1.01, 1.01])
 			BatteryBoxCover(batteryHeight=batteryHeight, numBatteries=numBatteries);
 		translate([0,-4,0])
 			union()
 			{
-				cylinder(cThickness, d=mountWidth/2);
+				cylinder(cThickness, d=mountWidth/2, $fn=60);
 				mirror([0,0,1])
-					cylinder(cThickness*2, d=3);
+					cylinder(cThickness*2, d=3, $fn=60);
 			}
 	}
 }

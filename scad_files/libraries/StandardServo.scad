@@ -7,7 +7,7 @@
 
 module StandardServo()
 {
-	servoBodyWidth = 38;
+	servoBodyWidth = 38.5;
 	servoBodyLength = 40;
 	servoHeight = 20;
 	mountLength = 55;
