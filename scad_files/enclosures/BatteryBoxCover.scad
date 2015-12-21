@@ -3,11 +3,11 @@
  * Description:
  *     Battery Box Cover
  */
-module BatteryBoxCover(batteryDiameter=15, batteryHeight=55, cThickness = 4, tabThickness = 2, screwDiameter =3, headDiameter=6, mountWidth=10, tabWidth=5, numBatteries = 4, rim = .5, tolerance=0.1)
+module BatteryBoxCover(batteryDiameter=15, batteryHeight=56, cThickness = 4, tabThickness = 2, screwDiameter =3, headDiameter=6, mountWidth=10, tabWidth=5, numBatteries = 4, rim = .5, tolerance=0.1)
 {
 	
-	width = batteryDiameter * numBatteries + rim;
-	length = batteryHeight + rim;
+	width = batteryDiameter * numBatteries + 2*rim;
+	length = batteryHeight + 2*rim;
 
 	echo(width);
 
@@ -59,7 +59,7 @@ module BatteryBoxCover(batteryDiameter=15, batteryHeight=55, cThickness = 4, tab
 }
 //BatteryBoxCover();
 
-module BatteryBoxCoverCavity(batteryHeight=55, numBatteries = 4)
+module BatteryBoxCoverCavity(batteryHeight=56, numBatteries = 4)
 {
 	mountWidth=20;
 	cThickness=4;

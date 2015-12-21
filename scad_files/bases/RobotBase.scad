@@ -82,13 +82,17 @@ module RobotBase(basewidth=92.5)
 				StandardServo();
 
 		// Battery Cavity
-		translate([0,-54-batteryBoxY,batteryBoxTranslationZ])
+		translate([0,-56-batteryBoxY,batteryBoxTranslationZ])
 			#BatteryBoxCavity(numBatteries = numBatteries);
 
 		// Battery Cover
 		translate([0,-batteryBoxY+1,batteryBoxTranslationZ+16])
 			mirror([0,1,0])
 				#BatteryBoxCoverCavity(numBatteries = numBatteries);
+                
+        // Remove excess "ball" over battery cover
+        translate([0,-(batteryBoxY+56-10),20])
+            #cube([40,20,20], center=true)
 
 		// Zip Tie Holes
 		union()
