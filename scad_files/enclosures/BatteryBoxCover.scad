@@ -8,13 +8,15 @@ module BatteryBoxCover(batteryDiameter=15, batteryHeight=56, cThickness = 4, tab
 	
 	width = batteryDiameter * numBatteries + 2*rim;
 	length = batteryHeight + 2*rim;
+    
+    tabInsertLength = 3;
 
 	echo(width);
 
 	module batteryTab()
 	{
 		translate([-(tabWidth - tolerance)/2,0,0])
-			cube(center=false, size=[tabWidth - tolerance, 5, cThickness-tabThickness-tolerance]);
+			cube(center=false, size=[tabWidth - tolerance, tabInsertLength, cThickness-tabThickness-tolerance]);
 	}
 
 	module screwMount()
